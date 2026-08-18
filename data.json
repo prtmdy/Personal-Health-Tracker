@@ -1,7 +1,7 @@
 {
   "patient": {
     "name": "Not mentioned",
-    "lastUpdated": "2026-08-18T12:28:48.825Z"
+    "lastUpdated": "2026-08-18T12:29:21.574Z"
   },
   "profiles": [
     {
@@ -3054,11 +3054,10 @@
       "remarks": "Present complaints: gait imbalance with falls, unable to walk without significant support, slurred speech constantly, on-and-off auditory and visual hallucinations, worsening memory, incoordination of fingers/loss of dexterity, worsened constipation, worsened sleep. Urine C/S negative. O/E: eye movements normal, speech hypomimic mildly dysarthric, no rest tremor/rigidity/bradykinesia, broad-based gait, tandem impaired, pull test normal, DTRs brisk, head tremor present, FNT positive bilaterally. History of LOC episode Sep 2025 (left-side weakness, drowsy ~30 min, systolic BP <100mmHg) and a second 15-second LOC the following week; MRI brain non-contributory for these episodes. Gait/balance exercise and speech therapy advised, plus a handwritten note reading approximately '⚠️ Unclear — needs review' (appears to say quadriceps strengthening and a reclining-cycle exercise, but handwriting is not fully certain).",
       "sourceDoc": "IINK_Prescription_050326.pdf — PRN 115123/OP-12",
       "sourceDate": "2026-03-05",
-      "unclearFields": [
-        "remarks"
-      ],
+      "unclearFields": [],
       "id": "visits_l1is5zd",
-      "profileId": "profile_kuhlpe1"
+      "profileId": "profile_kuhlpe1",
+      "_type": "visit"
     },
     {
       "date": "2025-09-27",
