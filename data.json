@@ -1,7 +1,7 @@
 {
   "patient": {
     "name": "Not mentioned",
-    "lastUpdated": "2026-08-18T07:01:26.463Z"
+    "lastUpdated": "2026-08-18T07:02:42.072Z"
   },
   "profiles": [
     {
@@ -28,16 +28,6 @@
       "status": "pending",
       "path": "uploads/1787036462916_Image.pdf",
       "rawUrl": "https://raw.githubusercontent.com/prtmdy/Personal-Health-Tracker/main/uploads/1787036462916_Image.pdf",
-      "profileId": "profile_0ywxxbj"
-    },
-    {
-      "id": "doc_9i95zvn",
-      "filename": "Image.pdf",
-      "uploadDate": "2026-08-18T07:01:26.463Z",
-      "category": "tests",
-      "status": "pending",
-      "path": "uploads/1787036480427_Image.pdf",
-      "rawUrl": "https://raw.githubusercontent.com/prtmdy/Personal-Health-Tracker/main/uploads/1787036480427_Image.pdf",
       "profileId": "profile_0ywxxbj"
     }
   ]
