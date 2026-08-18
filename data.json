@@ -1,7 +1,7 @@
 {
   "patient": {
     "name": "Not mentioned",
-    "lastUpdated": "2026-08-18T07:04:52.139Z"
+    "lastUpdated": "2026-08-18T07:05:08.739Z"
   },
   "profiles": [
     {
@@ -102,16 +102,5 @@
   ],
   "symptoms": [],
   "allergies": [],
-  "sourceDocuments": [
-    {
-      "id": "doc_3qx4krq",
-      "filename": "Image.pdf",
-      "uploadDate": "2026-08-18T07:04:52.138Z",
-      "category": null,
-      "status": "pending",
-      "path": "uploads/1787036687194_Image.pdf",
-      "rawUrl": "https://raw.githubusercontent.com/prtmdy/Personal-Health-Tracker/main/uploads/1787036687194_Image.pdf",
-      "profileId": "profile_kuhlpe1"
-    }
-  ]
+  "sourceDocuments": []
 }
