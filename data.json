@@ -1,7 +1,7 @@
 {
   "patient": {
     "name": "Not mentioned",
-    "lastUpdated": "2026-08-18T12:26:14.412Z"
+    "lastUpdated": "2026-08-18T12:27:44.885Z"
   },
   "profiles": [
     {
@@ -118,7 +118,7 @@
     },
     {
       "name": "TLM 40",
-      "dosage": "40 (unit not specified on record)",
+      "dosage": "40 mg",
       "frequency": "Once a day",
       "route": "Not mentioned",
       "duration": "Not mentioned",
@@ -128,11 +128,10 @@
       "prescribingDoctor": "Continuing from treating specialist; to be adjusted per Dr. Purba Basu's note",
       "sourceDoc": "IINK_Prescription_050326.pdf",
       "sourceDate": "2026-03-05",
-      "unclearFields": [
-        "dosage"
-      ],
+      "unclearFields": [],
       "id": "medications_leq0ap8",
-      "profileId": "profile_kuhlpe1"
+      "profileId": "profile_kuhlpe1",
+      "_type": "medication"
     },
     {
       "name": "Dytor 10mg",
