@@ -1,7 +1,7 @@
 {
   "patient": {
     "name": "Not mentioned",
-    "lastUpdated": "2026-08-18T12:25:27.295Z"
+    "lastUpdated": "2026-08-18T12:26:14.412Z"
   },
   "profiles": [
     {
@@ -19,7 +19,172 @@
       "createdDate": "2026-08-18T07:03:12.555Z"
     }
   ],
-  "medications": [],
+  "medications": [
+    {
+      "name": "Ciplar LA (Propranolol)",
+      "dosage": "40mg",
+      "frequency": "1-0-0 (once daily, morning)",
+      "route": "Oral",
+      "duration": "Not mentioned",
+      "startDate": "2026-03-05",
+      "endDate": "Not mentioned",
+      "status": "active",
+      "prescribingDoctor": "Dr. Purba Basu",
+      "sourceDoc": "IINK_Prescription_050326.pdf",
+      "sourceDate": "2026-03-05",
+      "unclearFields": [],
+      "id": "medications_3xivh6o",
+      "profileId": "profile_kuhlpe1"
+    },
+    {
+      "name": "Madopar (Levodopa, Benserazide)",
+      "dosage": "250mg",
+      "frequency": "1-1-1-1, handwritten as 7am-11am-3pm-7pm",
+      "route": "Oral",
+      "duration": "Not mentioned",
+      "startDate": "2026-03-05",
+      "endDate": "Not mentioned",
+      "status": "active",
+      "prescribingDoctor": "Dr. Purba Basu",
+      "sourceDoc": "IINK_Prescription_050326.pdf",
+      "sourceDate": "2026-03-05",
+      "unclearFields": [],
+      "id": "medications_64wj783",
+      "profileId": "profile_kuhlpe1"
+    },
+    {
+      "name": "Qutan (Quetiapine)",
+      "dosage": "25mg",
+      "frequency": "0-0-1 for 7 days, then 1/2-0-1 continuing",
+      "route": "Oral",
+      "duration": "7 days at initial dose, then ongoing at reduced dose",
+      "startDate": "2026-03-05",
+      "endDate": "Not mentioned",
+      "status": "active",
+      "prescribingDoctor": "Dr. Purba Basu",
+      "sourceDoc": "IINK_Prescription_050326.pdf",
+      "sourceDate": "2026-03-05",
+      "unclearFields": [],
+      "id": "medications_39xhdxp",
+      "profileId": "profile_kuhlpe1"
+    },
+    {
+      "name": "Cremaffin Plus Syrup (Paraffin)",
+      "dosage": "15ml",
+      "frequency": "0-0-15ml, as needed (SOS)",
+      "route": "Oral",
+      "duration": "Not mentioned",
+      "startDate": "2026-03-05",
+      "endDate": "Not mentioned",
+      "status": "active",
+      "prescribingDoctor": "Dr. Purba Basu",
+      "sourceDoc": "IINK_Prescription_050326.pdf",
+      "sourceDate": "2026-03-05",
+      "unclearFields": [],
+      "id": "medications_ff6tzrm",
+      "profileId": "profile_kuhlpe1"
+    },
+    {
+      "name": "Rivamer (Rivastigmine)",
+      "dosage": "1.5mg",
+      "frequency": "1-0-1 (twice daily)",
+      "route": "Oral",
+      "duration": "Not mentioned",
+      "startDate": "2026-03-05",
+      "endDate": "Not mentioned",
+      "status": "active",
+      "prescribingDoctor": "Dr. Purba Basu",
+      "sourceDoc": "IINK_Prescription_050326.pdf",
+      "sourceDate": "2026-03-05",
+      "unclearFields": [],
+      "id": "medications_ay1oa0e",
+      "profileId": "profile_kuhlpe1"
+    },
+    {
+      "name": "Rejunex (Methylcobalamin) Injection",
+      "dosage": "500mcg",
+      "frequency": "Once a week for 8 weeks",
+      "route": "IM (intramuscular)",
+      "duration": "8 weeks",
+      "startDate": "2026-03-05",
+      "endDate": "Not mentioned",
+      "status": "active",
+      "prescribingDoctor": "Dr. Purba Basu",
+      "sourceDoc": "IINK_Prescription_050326.pdf",
+      "sourceDate": "2026-03-05",
+      "unclearFields": [],
+      "id": "medications_lewd6y5",
+      "profileId": "profile_kuhlpe1"
+    },
+    {
+      "name": "TLM 40",
+      "dosage": "40 (unit not specified on record)",
+      "frequency": "Once a day",
+      "route": "Not mentioned",
+      "duration": "Not mentioned",
+      "startDate": "Not mentioned",
+      "endDate": "Not mentioned",
+      "status": "active",
+      "prescribingDoctor": "Continuing from treating specialist; to be adjusted per Dr. Purba Basu's note",
+      "sourceDoc": "IINK_Prescription_050326.pdf",
+      "sourceDate": "2026-03-05",
+      "unclearFields": [
+        "dosage"
+      ],
+      "id": "medications_leq0ap8",
+      "profileId": "profile_kuhlpe1"
+    },
+    {
+      "name": "Dytor 10mg",
+      "dosage": "10mg",
+      "frequency": "1-0-0",
+      "route": "Oral",
+      "duration": "Not mentioned",
+      "startDate": "Not mentioned",
+      "endDate": "Not mentioned",
+      "status": "active",
+      "prescribingDoctor": "Continuing from treating specialist",
+      "sourceDoc": "IINK_Prescription_050326.pdf",
+      "sourceDate": "2026-03-05",
+      "unclearFields": [],
+      "id": "medications_r9lk5te",
+      "profileId": "profile_kuhlpe1"
+    },
+    {
+      "name": "Atorlip 20",
+      "dosage": "20 (unit not specified on record)",
+      "frequency": "Once a day",
+      "route": "Not mentioned",
+      "duration": "Not mentioned",
+      "startDate": "Not mentioned",
+      "endDate": "Not mentioned",
+      "status": "active",
+      "prescribingDoctor": "Continuing from treating specialist",
+      "sourceDoc": "IINK_Prescription_050326.pdf",
+      "sourceDate": "2026-03-05",
+      "unclearFields": [
+        "dosage"
+      ],
+      "id": "medications_m5xv371",
+      "profileId": "profile_kuhlpe1"
+    },
+    {
+      "name": "Ecosprin 150",
+      "dosage": "150mg",
+      "frequency": "Once a day",
+      "route": "Oral",
+      "duration": "Not mentioned",
+      "startDate": "Not mentioned",
+      "endDate": "Not mentioned",
+      "status": "active",
+      "prescribingDoctor": "Continuing from treating specialist",
+      "sourceDoc": "IINK_Prescription_050326.pdf",
+      "sourceDate": "2026-03-05",
+      "unclearFields": [],
+      "id": "medications_zvwrxm4",
+      "profileId": "profile_kuhlpe1"
+    }
+  ],
   "tests": [
     {
       "testName": "MRI of Brain",
@@ -1714,6 +1879,91 @@
       "unclearFields": [],
       "id": "diagnoses_fjmi4m3",
       "profileId": "profile_kuhlpe1"
+    },
+    {
+      "condition": "Late-onset ataxia — possibly MSA-C (Multiple System Atrophy, Cerebellar type), symptomatic since 2010; differential SCA 40",
+      "dateNoted": "2026-03-05",
+      "doctor": "Dr. Purba Basu",
+      "notes": "Mother had similar gait imbalance and recurrent falls; SCA gene profile came back negative for patient. Predominantly ataxic syndrome, >10 year history. Slow progression may go against MSA, though some MSA patients progress slowly.",
+      "sourceDoc": "IINK_Prescription_050326.pdf",
+      "sourceDate": "2026-03-05",
+      "unclearFields": [],
+      "id": "diagnoses_t14slji",
+      "profileId": "profile_kuhlpe1"
+    },
+    {
+      "condition": "Clinical exome sequencing (8/12/2023) — uncertain significance variant in CCD88C gene, probably causative of reported phenotype, associated with probable SCA 40",
+      "dateNoted": "2023-12-08",
+      "doctor": "Dr. Purba Basu",
+      "notes": "Not mentioned",
+      "sourceDoc": "IINK_Prescription_050326.pdf",
+      "sourceDate": "2026-03-05",
+      "unclearFields": [],
+      "id": "diagnoses_dbat39w",
+      "profileId": "profile_kuhlpe1"
+    },
+    {
+      "condition": "Multiple chronic ischaemic foci with diffuse cortical atrophy (MRI brain, 2016)",
+      "dateNoted": "2016-01-01",
+      "doctor": "Not mentioned",
+      "notes": "No significant cerebellar atrophy noted at that time. Date is year-only as printed on record — exact day/month not mentioned.",
+      "sourceDoc": "IINK_Prescription_050326.pdf",
+      "sourceDate": "2026-03-05",
+      "unclearFields": [
+        "dateNoted"
+      ],
+      "id": "diagnoses_u0z4d66",
+      "profileId": "profile_kuhlpe1"
+    },
+    {
+      "condition": "Degenerative disc disease, cervical spine (MRI screening, 2016)",
+      "dateNoted": "2016-01-01",
+      "doctor": "Not mentioned",
+      "notes": "No obvious compression, no signal changes. Date is year-only as printed — exact day/month not mentioned.",
+      "sourceDoc": "IINK_Prescription_050326.pdf",
+      "sourceDate": "2026-03-05",
+      "unclearFields": [
+        "dateNoted"
+      ],
+      "id": "diagnoses_vj9vwgq",
+      "profileId": "profile_kuhlpe1"
+    },
+    {
+      "condition": "White matter ischaemic changes, cerebral atrophy, left thalamic/frontal/parietal old microbleed (MRI brain, Oct 2025)",
+      "dateNoted": "2025-10-01",
+      "doctor": "Not mentioned",
+      "notes": "Consistent with the RB Diagnostic MRI report dated 2025-10-10 already in this chart. Day not specified in this record, so dateNoted uses month/year only.",
+      "sourceDoc": "IINK_Prescription_050326.pdf",
+      "sourceDate": "2026-03-05",
+      "unclearFields": [
+        "dateNoted"
+      ],
+      "id": "diagnoses_eovz3bp",
+      "profileId": "profile_kuhlpe1"
+    },
+    {
+      "condition": "Loss of consciousness episodes (September 2025)",
+      "dateNoted": "2025-09-01",
+      "doctor": "Not mentioned",
+      "notes": "First episode: left-side weakness, drowsy ~30 minutes, systolic BP <100mmHg. Second brief (15 second) LOC the following week. MRI brain non-contributory. Exact day not specified.",
+      "sourceDoc": "IINK_Prescription_050326.pdf",
+      "sourceDate": "2026-03-05",
+      "unclearFields": [
+        "dateNoted"
+      ],
+      "id": "diagnoses_qxn21pn",
+      "profileId": "profile_kuhlpe1"
+    },
+    {
+      "condition": "Known hypertension",
+      "dateNoted": "Not mentioned",
+      "doctor": "Not mentioned",
+      "notes": "No Diabetes Mellitus noted.",
+      "sourceDoc": "IINK_Prescription_050326.pdf",
+      "sourceDate": "2026-03-05",
+      "unclearFields": [],
+      "id": "diagnoses_tjd0vdx",
+      "profileId": "profile_kuhlpe1"
     }
   ],
   "vitals": [],
@@ -1755,6 +2005,21 @@
       "sourceDate": "2026-03-11",
       "unclearFields": [],
       "id": "visits_5eum5sy",
+      "profileId": "profile_kuhlpe1"
+    },
+    {
+      "date": "2026-03-05",
+      "doctor": "Dr. Purba Basu, MBBS, M.Phil Neuroscience (Regn. WBMC-52214)",
+      "clinic": "Institute of Neurosciences Kolkata — Neurology OPD",
+      "reason": "Follow-up for progressive ataxia; overall worsening over past month",
+      "followUp": "Follow up after 4 months. Investigations advised: CBC, ESR, CRP, Na, K.",
+      "remarks": "Present complaints: gait imbalance with falls, unable to walk without significant support, slurred speech constantly, on-and-off auditory and visual hallucinations, worsening memory, incoordination of fingers/loss of dexterity, worsened constipation, worsened sleep. Urine C/S negative. O/E: eye movements normal, speech hypomimic mildly dysarthric, no rest tremor/rigidity/bradykinesia, broad-based gait, tandem impaired, pull test normal, DTRs brisk, head tremor present, FNT positive bilaterally. History of LOC episode Sep 2025 (left-side weakness, drowsy ~30 min, systolic BP <100mmHg) and a second 15-second LOC the following week; MRI brain non-contributory for these episodes. Gait/balance exercise and speech therapy advised, plus a handwritten note reading approximately '⚠️ Unclear — needs review' (appears to say quadriceps strengthening and a reclining-cycle exercise, but handwriting is not fully certain).",
+      "sourceDoc": "IINK_Prescription_050326.pdf — PRN 115123/OP-12",
+      "sourceDate": "2026-03-05",
+      "unclearFields": [
+        "remarks"
+      ],
+      "id": "visits_l1is5zd",
       "profileId": "profile_kuhlpe1"
     }
   ],
