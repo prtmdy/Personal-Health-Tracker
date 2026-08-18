@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Health Record — Chart</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="chart">
+
+  <!-- Side tab rail -->
+  <nav class="tabrail" id="tabrail" aria-label="Chart sections">
+    <div class="tab-brand">
+      <span class="tab-brand-mark">🌤️</span>
+      <div>
+        <div class="tab-brand-name">Health Chart</div>
+        <div class="tab-brand-sub" id="lastUpdated">No entries yet</div>
+      </div>
+    </div>
+
+    <!-- Profile switcher moved to a fixed top-right control, see body -->
+
+    <button class="tab" data-view="overview" aria-current="page">
+      <span class="tab-idx">Ov</span> Overview
+    </button>
+    <button class="tab" data-view="inference">
+      <span class="tab-idx">In</span> Inference
+    </button>
+    <button class="tab" data-view="timeline">
+      <span class="tab-idx">Tl</span> Timeline
+    </button>
+    <button class="tab" data-view="medications">
+      <span class="tab-idx">Rx</span> Medications
+    </button>
+    <button class="tab" data-view="tests">
+      <span class="tab-idx">Lb</span> Tests &amp; Results
+    </button>
+    <button class="tab" data-view="diagnoses">
+      <span class="tab-idx">Dx</span> Diagnoses
+    </button>
+    <button class="tab" data-view="vitals">
+      <span class="tab-idx">Vt</span> Vitals
+    </button>
+    <button class="tab" data-view="visits">
+      <span class="tab-idx">Vi</span> Visits
+    </button>
+    <button class="tab" data-view="symptoms">
+      <span class="tab-idx">Sx</span> Symptoms Log
+    </button>
+    <button class="tab" data-view="documents">
+      <span class="tab-idx">Dc</span> Documents <span class="tab-count pending" id="pendingCount">0</span>
+    </button>
+    <button class="tab" data-view="review">
+      <span class="tab-idx">!</span> Needs Review <span class="tab-count" id="reviewCount">0</span>
+    </button>
+    <div class="tabrail-footer">
+      <div class="sync-status" id="syncStatus">Not connected to GitHub</div>
+      <button class="ghost-btn" id="connectBtn">Connect GitHub</button>
+      <button class="ghost-btn" id="exportBtn">Export chart</button>
+      <button class="ghost-btn" id="importBtn">Import data</button>
+    </div>
+  </nav>
+
+  <!-- Main content -->
+  <main class="sheet" id="sheet">
+    <!-- rendered by app.js -->
+  </main>
+</div>
+
+<!-- Fixed top-right profile switcher, YouTube-style -->
+<div class="profile-fab-wrap">
+  <button class="profile-fab" id="profileBtn" aria-expanded="false" title="Switch profile">
+    <span class="profile-avatar" id="profileAvatar">?</span>
+  </button>
+</div>
+<div class="profile-menu" id="profileMenu"></div>
+
+<!-- Modal for add/edit -->
+<div class="modal-backdrop" id="modalBackdrop">
+  <div class="modal" id="modal"></div>
+</div>
+
+<!-- hidden file input reused by all upload buttons -->
+<input type="file" id="fileInput" style="display:none" accept="image/*,application/pdf,.doc,.docx,.txt" />
+
+<template id="tpl-empty">
+  <div class="empty-state">
+    <div class="empty-mark">✦</div>
+    <p class="empty-title"></p>
+    <p class="empty-sub"></p>
+  </div>
+</template>
+
+<script src="app.js"></script>
+</body>
+</html>

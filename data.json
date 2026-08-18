@@ -1,0 +1,15 @@
+{
+  "patient": {
+    "name": "Not mentioned",
+    "lastUpdated": null
+  },
+  "profiles": [],
+  "medications": [],
+  "tests": [],
+  "diagnoses": [],
+  "vitals": [],
+  "visits": [],
+  "symptoms": [],
+  "allergies": [],
+  "sourceDocuments": []
+}
