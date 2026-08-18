@@ -1,7 +1,7 @@
 {
   "patient": {
     "name": "Not mentioned",
-    "lastUpdated": "2026-08-18T12:28:17.559Z"
+    "lastUpdated": "2026-08-18T12:28:48.825Z"
   },
   "profiles": [
     {
@@ -151,7 +151,7 @@
     },
     {
       "name": "Atorlip 20",
-      "dosage": "20 (unit not specified on record)",
+      "dosage": "20 mg",
       "frequency": "Once a day",
       "route": "Not mentioned",
       "duration": "Not mentioned",
@@ -161,11 +161,10 @@
       "prescribingDoctor": "Continuing from treating specialist",
       "sourceDoc": "IINK_Prescription_050326.pdf",
       "sourceDate": "2026-03-05",
-      "unclearFields": [
-        "dosage"
-      ],
+      "unclearFields": [],
       "id": "medications_m5xv371",
-      "profileId": "profile_kuhlpe1"
+      "profileId": "profile_kuhlpe1",
+      "_type": "medication"
     },
     {
       "name": "Ecosprin 150",
