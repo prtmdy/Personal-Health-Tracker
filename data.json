@@ -1,7 +1,7 @@
 {
   "patient": {
     "name": "Not mentioned",
-    "lastUpdated": "2026-08-18T07:02:42.072Z"
+    "lastUpdated": "2026-08-18T07:03:12.555Z"
   },
   "profiles": [
     {
@@ -10,6 +10,13 @@
       "color": "lav",
       "avatar": "🦊",
       "createdDate": "2026-08-18T06:59:58.916Z"
+    },
+    {
+      "id": "profile_kuhlpe1",
+      "name": "Ma",
+      "color": "sky",
+      "avatar": "🐳",
+      "createdDate": "2026-08-18T07:03:12.555Z"
     }
   ],
   "medications": [],
@@ -19,16 +26,5 @@
   "visits": [],
   "symptoms": [],
   "allergies": [],
-  "sourceDocuments": [
-    {
-      "id": "doc_8p21zpq",
-      "filename": "Image.pdf",
-      "uploadDate": "2026-08-18T07:01:07.622Z",
-      "category": "tests",
-      "status": "pending",
-      "path": "uploads/1787036462916_Image.pdf",
-      "rawUrl": "https://raw.githubusercontent.com/prtmdy/Personal-Health-Tracker/main/uploads/1787036462916_Image.pdf",
-      "profileId": "profile_0ywxxbj"
-    }
-  ]
+  "sourceDocuments": []
 }
