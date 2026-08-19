@@ -1,7 +1,7 @@
 {
   "patient": {
     "name": "Not mentioned",
-    "lastUpdated": "2026-08-19T06:15:42.844Z"
+    "lastUpdated": "2026-08-19T06:16:35.359Z"
   },
   "profiles": [
     {
@@ -1021,6 +1021,38 @@
       "unclearFields": [],
       "id": "tests_l8g8wu2",
       "profileId": "profile_ytoxde3"
+    },
+    {
+      "testName": "Potassium",
+      "category": "Blood",
+      "reasonOrdered": "Not mentioned",
+      "dateOrdered": "2025-09-27",
+      "dateResult": "2025-09-27",
+      "value": "4.3",
+      "unit": "mmol/L",
+      "referenceRange": "3.5-5.1",
+      "flag": "normal",
+      "sourceDoc": "Subra_Dey_F_61_2025_9.pdf",
+      "sourceDate": "2025-09-27",
+      "unclearFields": [],
+      "id": "tests_roerram",
+      "profileId": "profile_ytoxde3"
+    },
+    {
+      "testName": "Sodium",
+      "category": "Blood",
+      "reasonOrdered": "Not mentioned",
+      "dateOrdered": "2025-09-27",
+      "dateResult": "2025-09-27",
+      "value": "136.5",
+      "unit": "mmol/L",
+      "referenceRange": "136-145",
+      "flag": "normal",
+      "sourceDoc": "Subra_Dey_F_61_2025_9.pdf",
+      "sourceDate": "2025-09-27",
+      "unclearFields": [],
+      "id": "tests_yqjvorx",
+      "profileId": "profile_ytoxde3"
     }
   ],
   "diagnoses": [],
@@ -1037,6 +1069,19 @@
       "sourceDate": "2025-05-05",
       "unclearFields": [],
       "id": "visits_ybviw2k",
+      "profileId": "profile_ytoxde3"
+    },
+    {
+      "date": "2025-09-27",
+      "doctor": "Self-referred; reported by Dr. Mohini Gupta, MD(Path)",
+      "clinic": "PharmEasy Labs (home collection) — Thyrocare, NABL cert MC-4948",
+      "reason": "Potassium, Sodium",
+      "followUp": "Not mentioned",
+      "remarks": "Not mentioned",
+      "sourceDoc": "Subra_Dey_F_61_2025_9.pdf",
+      "sourceDate": "2025-09-27",
+      "unclearFields": [],
+      "id": "visits_u3bnpsy",
       "profileId": "profile_ytoxde3"
     }
   ],
