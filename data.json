@@ -1,7 +1,7 @@
 {
   "patient": {
     "name": "Not mentioned",
-    "lastUpdated": "2026-08-19T06:18:19.255Z"
+    "lastUpdated": "2026-08-19T06:18:42.305Z"
   },
   "profiles": [
     {
@@ -1538,6 +1538,22 @@
       "unclearFields": [],
       "id": "tests_u8w8mga",
       "profileId": "profile_ytoxde3"
+    },
+    {
+      "testName": "MRI of Brain",
+      "category": "Imaging",
+      "reasonOrdered": "Not mentioned",
+      "dateOrdered": "2025-10-10",
+      "dateResult": "2025-10-10",
+      "value": "See linked diagnoses for itemized findings — multifocal chronic ischaemic lesions, diffuse cerebral atrophy, tiny old microbleed, incidental right maxillary sinusitis",
+      "unit": "Not mentioned",
+      "referenceRange": "Not mentioned",
+      "flag": "not-mentioned",
+      "sourceDoc": "Test.pdf — RB Diagnostic Pvt. Ltd., ACC NO. NJ10-177",
+      "sourceDate": "2025-10-10",
+      "unclearFields": [],
+      "id": "tests_q21qcaw",
+      "profileId": "profile_ytoxde3"
     }
   ],
   "diagnoses": [
@@ -1625,6 +1641,50 @@
       "unclearFields": [],
       "id": "diagnoses_4bygyn3",
       "profileId": "profile_ytoxde3"
+    },
+    {
+      "condition": "Cerebral subcortical and deep white matter multifocal chronic ischaemic lesions (microangiopathic changes)",
+      "dateNoted": "2025-10-10",
+      "doctor": "Dr. S L Kedia, MD, PGI (Consultant Radiologist)",
+      "notes": "No restricted diffusion. White matter tracts, corpus callosum normal in size/signal.",
+      "sourceDoc": "Test.pdf — RB Diagnostic Pvt. Ltd.",
+      "sourceDate": "2025-10-10",
+      "unclearFields": [],
+      "id": "diagnoses_ckrioyb",
+      "profileId": "profile_ytoxde3"
+    },
+    {
+      "condition": "Diffuse cerebral atrophy",
+      "dateNoted": "2025-10-10",
+      "doctor": "Dr. S L Kedia, MD, PGI (Consultant Radiologist)",
+      "notes": "Supra-tentorial ventricles enlarged with septum in midline. Sulci, fissures & cisterns appear enlarged.",
+      "sourceDoc": "Test.pdf — RB Diagnostic Pvt. Ltd.",
+      "sourceDate": "2025-10-10",
+      "unclearFields": [],
+      "id": "diagnoses_0pi8sgd",
+      "profileId": "profile_ytoxde3"
+    },
+    {
+      "condition": "Left thalamus, left frontal and parietal lobe — tiny area of old microbleed",
+      "dateNoted": "2025-10-10",
+      "doctor": "Dr. S L Kedia, MD, PGI (Consultant Radiologist)",
+      "notes": "Not mentioned",
+      "sourceDoc": "Test.pdf — RB Diagnostic Pvt. Ltd.",
+      "sourceDate": "2025-10-10",
+      "unclearFields": [],
+      "id": "diagnoses_ak05l0g",
+      "profileId": "profile_ytoxde3"
+    },
+    {
+      "condition": "Right maxillary sinusitis (incidental finding)",
+      "dateNoted": "2025-10-10",
+      "doctor": "Dr. S L Kedia, MD, PGI (Consultant Radiologist)",
+      "notes": "Not mentioned",
+      "sourceDoc": "Test.pdf — RB Diagnostic Pvt. Ltd.",
+      "sourceDate": "2025-10-10",
+      "unclearFields": [],
+      "id": "diagnoses_t57wwii",
+      "profileId": "profile_ytoxde3"
     }
   ],
   "vitals": [],
@@ -1681,6 +1741,19 @@
       "sourceDate": "2026-03-11",
       "unclearFields": [],
       "id": "visits_sunxko7",
+      "profileId": "profile_ytoxde3"
+    },
+    {
+      "date": "2025-10-10",
+      "doctor": "Referred by Dr. T K Kundu (WBMC) — reported by Dr. S L Kedia",
+      "clinic": "RB Diagnostic Pvt. Ltd., Lake Town, Kolkata (Center: BST)",
+      "reason": "MRI of Brain",
+      "followUp": "Not mentioned",
+      "remarks": "Please correlate clinically. Full procedure: T1 (axial, sagittal), T2 (axial, sagittal, coronal), FLAIR axial; special sequences DWI EPI and GRE T2 axial.",
+      "sourceDoc": "Test.pdf — ACC NO. NJ10-177",
+      "sourceDate": "2025-10-10",
+      "unclearFields": [],
+      "id": "visits_er3v2mv",
       "profileId": "profile_ytoxde3"
     }
   ],
