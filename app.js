@@ -64,7 +64,7 @@
   /* ---------- Profile helpers ---------- */
   function ensureProfiles() {
     if (!state.profiles || !state.profiles.length) {
-      const def = { id: uid("profile"), name: "Me", color: "lav", avatar: PROFILE_AVATARS[0], createdDate: new Date().toISOString() };
+      const def = { id: uid("profile"), name: "Ma", color: "lav", avatar: PROFILE_AVATARS[0], createdDate: new Date().toISOString() };
       state.profiles = [def];
     }
     // Migrate any records without a profileId onto the first profile
@@ -202,6 +202,7 @@
       visits: () => renderCategory("visits", "Doctor Visits", visitCard, "cat-visit"),
       symptoms: () => renderCategory("symptoms", "Symptoms Log", symptomCard, "cat-symptom"),
       documents: renderDocuments,
+      compare: renderCompare,
       review: renderReview,
     };
     (renderers[currentView] || renderOverview)();
@@ -335,12 +336,19 @@
     grid.className = "overview-grid";
 
     const activeMeds = forActiveProfile("medications").filter(m => m.status === "active");
+    const latestMed = [...activeMeds].sort((a, b) => new Date(b.startDate || 0) - new Date(a.startDate || 0))[0];
     const medCard = document.createElement("div");
     medCard.className = "stat-card c-mint";
     medCard.innerHTML = `<h3>Active Medications</h3><div class="stat-big">${activeMeds.length}</div>`;
+    if (latestMed) {
+      const lm = document.createElement("div");
+      lm.className = "latest-med-highlight";
+      lm.innerHTML = `<div class="field-label">Latest</div><div style="font-weight:700;">${latestMed.name}</div><div class="field-value">${latestMed.dosage || "—"} · started ${fmtDate(latestMed.startDate)}</div>`;
+      medCard.appendChild(lm);
+    }
     if (activeMeds.length) {
-      const ul = document.createElement("ul"); ul.className = "stat-list";
-      activeMeds.slice(0, 5).forEach(m => { ul.innerHTML += `<li><span>${m.name}</span><span class="field-value">${m.dosage || "—"}</span></li>`; });
+      const ul = document.createElement("ul"); ul.className = "stat-list stat-list-scroll";
+      [...activeMeds].sort((a, b) => new Date(b.startDate || 0) - new Date(a.startDate || 0)).forEach(m => { ul.innerHTML += `<li><span>${m.name}</span><span class="field-value">${m.dosage || "—"}</span></li>`; });
       medCard.appendChild(ul);
     }
     grid.appendChild(medCard);
@@ -459,6 +467,13 @@
     vitals: "+ Add vitals", visits: "+ Add visit", symptoms: "+ Add symptom entry",
   };
 
+  function primaryDateOf(key, r) {
+    if (key === "medications") return r.startDate;
+    if (key === "tests") return r.dateResult || r.dateOrdered;
+    if (key === "diagnoses") return r.dateNoted;
+    return r.date; // vitals, visits, symptoms
+  }
+
   function renderCategory(key, title, cardFn, catClass) {
     const sheet = document.getElementById("sheet");
     const records = forActiveProfile(key);
@@ -470,11 +485,54 @@
       sheet.appendChild(emptyState(`No ${title.toLowerCase()} yet`, "Upload a prescription/report above, or add an entry by hand — either way it'll show up here."));
       return;
     }
-    const list = document.createElement("div");
-    list.className = "record-list";
-    const sorted = [...records].sort((a, b) => new Date(b.startDate || b.dateResult || b.dateNoted || b.date || 0) - new Date(a.startDate || a.dateResult || a.dateNoted || a.date || 0));
-    sorted.forEach(r => list.appendChild(cardFn(r, catClass)));
-    sheet.appendChild(list);
+
+    sheet.appendChild(renderDateGroups(records, key, cardFn, catClass));
+  }
+
+  // Groups a set of records by their primary date and renders a click-to-expand accordion.
+  // Returns a DOM node ready to append.
+  function renderDateGroups(records, key, cardFn, catClass) {
+    const byDate = {};
+    records.forEach(r => {
+      const raw = primaryDateOf(key, r);
+      const label = raw && raw !== "Not mentioned" ? fmtDate(raw) : "No date on record";
+      (byDate[label] = byDate[label] || { records: [], raw }).records.push(r);
+    });
+    const labels = Object.keys(byDate).sort((a, b) => {
+      if (a === "No date on record") return 1;
+      if (b === "No date on record") return -1;
+      return new Date(byDate[b].raw || 0) - new Date(byDate[a].raw || 0);
+    });
+
+    const wrap = document.createElement("div");
+    labels.forEach(label => {
+      const group = byDate[label];
+      const hasUnclear = group.records.some(r => (r.unclearFields || []).length > 0);
+      const dg = document.createElement("div");
+      dg.className = "date-group";
+      const dgHeader = document.createElement("div");
+      dgHeader.className = "date-group-header";
+      dgHeader.innerHTML = `
+        <div style="display:flex;align-items:center;gap:10px;">
+          ${hasUnclear ? '<span class="date-group-flag"></span>' : ""}
+          <span class="date-group-title">${label}</span>
+        </div>
+        <div class="date-group-meta">
+          <span class="date-group-count">${group.records.length}</span>
+          <span class="date-group-caret">▾</span>
+        </div>`;
+      const dgBody = document.createElement("div");
+      dgBody.className = "date-group-body";
+      const list = document.createElement("div");
+      list.className = "record-list";
+      group.records.forEach(r => list.appendChild(cardFn(r, catClass)));
+      dgBody.appendChild(list);
+      dgHeader.onclick = () => dg.classList.toggle("open");
+      dg.appendChild(dgHeader);
+      dg.appendChild(dgBody);
+      wrap.appendChild(dg);
+    });
+    return wrap;
   }
 
   function cardShell(rec, name, metaHtml, pillHtml, fieldsHtml, key, catClass) {
@@ -580,6 +638,98 @@
       list.appendChild(div);
     });
     sheet.appendChild(list);
+  }
+
+  /* ---------- Compare tab ---------- */
+  let compareCategory = "tests";
+  let compareSelectedDates = new Set();
+
+  const compareCategories = {
+    medications: "Medications", tests: "Tests & Results", diagnoses: "Diagnoses",
+    vitals: "Vitals", visits: "Visits", symptoms: "Symptoms",
+  };
+  const compareLabelFn = {
+    medications: r => r.name, tests: r => r.testName, diagnoses: r => r.condition,
+    vitals: r => "Vitals", visits: r => r.clinic || r.doctor || "Visit", symptoms: r => r.symptoms,
+  };
+
+  function renderCompare() {
+    const sheet = document.getElementById("sheet");
+    sheet.appendChild(header("Compare", "Line up entries from the same category side by side, by date"));
+
+    const controls = document.createElement("div");
+    controls.className = "compare-controls";
+    const catRow = document.createElement("div");
+    catRow.className = "form-row";
+    catRow.innerHTML = `<label>Category</label><select id="compareCatSelect">${Object.entries(compareCategories).map(([k, v]) => `<option value="${k}" ${k === compareCategory ? "selected" : ""}>${v}</option>`).join("")}</select>`;
+    controls.appendChild(catRow);
+    sheet.appendChild(controls);
+
+    catRow.querySelector("#compareCatSelect").onchange = (e) => { compareCategory = e.target.value; compareSelectedDates = new Set(); render(); };
+
+    const records = forActiveProfile(compareCategory);
+    if (!records.length) {
+      sheet.appendChild(emptyState(`No ${compareCategories[compareCategory].toLowerCase()} yet`, "Once there are entries in this category, pick dates here to compare them side by side."));
+      return;
+    }
+
+    // Build date groups for this category
+    const byDate = {};
+    records.forEach(r => {
+      const raw = primaryDateOf(compareCategory, r);
+      const label = raw && raw !== "Not mentioned" ? fmtDate(raw) : "No date on record";
+      (byDate[label] = byDate[label] || []).push(r);
+    });
+    const dateLabels = Object.keys(byDate).sort((a, b) => {
+      if (a === "No date on record") return 1;
+      if (b === "No date on record") return -1;
+      return new Date(b) - new Date(a);
+    });
+
+    const picker = document.createElement("div");
+    picker.className = "compare-date-picker";
+    dateLabels.forEach(label => {
+      const chip = document.createElement("div");
+      chip.className = "compare-date-chip" + (compareSelectedDates.has(label) ? " selected" : "");
+      chip.textContent = `${label} (${byDate[label].length})`;
+      chip.onclick = () => {
+        if (compareSelectedDates.has(label)) compareSelectedDates.delete(label);
+        else compareSelectedDates.add(label);
+        render();
+      };
+      picker.appendChild(chip);
+    });
+    sheet.appendChild(picker);
+
+    if (!compareSelectedDates.size) {
+      const hint = document.createElement("div");
+      hint.className = "empty-state";
+      hint.style.marginTop = "20px";
+      hint.innerHTML = `<div class="empty-mark">✦</div><p class="empty-title">Pick two or more dates above</p><p class="empty-sub">Select dates to line their entries up in a comparison table.</p>`;
+      sheet.appendChild(hint);
+      return;
+    }
+
+    // Gather entries from selected dates
+    const entries = [];
+    dateLabels.filter(l => compareSelectedDates.has(l)).forEach(label => {
+      byDate[label].forEach(r => entries.push({ dateLabel: label, record: r }));
+    });
+
+    const defs = fieldDefs[compareCategory];
+    const table = document.createElement("div");
+    table.className = "compare-table-wrap";
+    let thead = `<tr><th>Field</th>${entries.map(e => `<th>${compareLabelFn[compareCategory](e.record)}<br><span style="font-weight:400;text-transform:none;">${e.dateLabel}</span></th>`).join("")}</tr>`;
+    let rows = defs.map(([name, label]) => {
+      const cells = entries.map(e => {
+        const v = e.record[name];
+        const cls = fieldClass(v);
+        return `<td class="field-value ${cls}">${v || "Not mentioned"}</td>`;
+      }).join("");
+      return `<tr><td class="label-col">${label}</td>${cells}</tr>`;
+    }).join("");
+    table.innerHTML = `<table class="compare-table"><thead>${thead}</thead><tbody>${rows}</tbody></table>`;
+    sheet.appendChild(table);
   }
 
   /* ---------- Form / modal ---------- */
@@ -752,12 +902,22 @@
     const modal = document.getElementById("modal");
     modal.innerHTML = `
       <h2>Import data</h2>
-      <div class="modal-sub">Paste a JSON health-record object (as produced by Claude after extracting a document) to merge it into ${activeProfile() ? activeProfile().name : "this profile"}'s chart.</div>
+      <div class="modal-sub">Merge extracted data into ${activeProfile() ? activeProfile().name : "this profile"}'s chart.</div>
+      <div class="form-row"><label>Import into category</label>
+        <select id="importCategory">
+          <option value="auto">Auto-detect (paste the full JSON object with category keys)</option>
+          <option value="medications">Medications</option>
+          <option value="tests">Tests &amp; Results</option>
+          <option value="diagnoses">Diagnoses</option>
+          <option value="vitals">Vitals</option>
+          <option value="visits">Visits</option>
+          <option value="symptoms">Symptoms</option>
+        </select></div>
       <div class="form-row"><label>Which document was this extracted from? (optional)</label>
         <select id="importSourceDoc"><option value="">— none / not from an upload —</option>
           ${forActiveProfile("sourceDocuments").filter(d => d.status === "pending").map(d => `<option value="${d.id}">${d.filename}</option>`).join("")}
         </select></div>
-      <div class="form-row"><textarea id="importArea" style="min-height:200px;font-family:var(--mono);font-size:12px;" placeholder='{"medications":[...],"tests":[...]}'></textarea></div>
+      <div class="form-row"><label>Data (JSON)</label><textarea id="importArea" style="min-height:200px;font-family:var(--mono);font-size:12px;" placeholder='Auto-detect: {"medications":[...],"tests":[...]}&#10;Single category: [{...}, {...}]'></textarea></div>
       <div class="modal-actions">
         <button class="btn-secondary" id="cancelBtn" type="button">Cancel</button>
         <button class="btn-primary" id="mergeBtn" type="button">Merge into chart</button>
@@ -765,8 +925,17 @@
     modal.querySelector("#cancelBtn").onclick = closeModal;
     modal.querySelector("#mergeBtn").onclick = () => {
       try {
-        const incoming = JSON.parse(document.getElementById("importArea").value);
+        const parsed = JSON.parse(document.getElementById("importArea").value);
+        const targetCategory = document.getElementById("importCategory").value;
         const linkedDocId = document.getElementById("importSourceDoc").value;
+        let incoming;
+        if (targetCategory === "auto") {
+          incoming = parsed;
+        } else {
+          // Single-category mode: accept either a bare array or {categoryName: [...]}
+          const arr = Array.isArray(parsed) ? parsed : (parsed[targetCategory] || []);
+          incoming = { [targetCategory]: arr };
+        }
         ["medications", "tests", "diagnoses", "vitals", "visits", "symptoms", "allergies", "sourceDocuments"].forEach(key => {
           if (Array.isArray(incoming[key])) {
             incoming[key].forEach(rec => { if (!rec.id) rec.id = uid(key); if (!rec.profileId) rec.profileId = activeProfileId; });

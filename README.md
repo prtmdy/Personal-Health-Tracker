@@ -77,6 +77,29 @@ same token or a new one scoped the same way.
 > the extracted JSON, paste it into the dashboard, then copy the resulting
 > `data.json` back into the repo yourself.
 
+## Browsing entries
+
+Every category (Medications, Tests, Diagnoses, Vitals, Visits, Symptoms) is grouped by date
+into a collapsed accordion — you see a list of dates with entry counts, not a wall of cards.
+Click a date to expand it and see the full entries for that day. A small dot next to a date
+means at least one entry that day still has an "⚠️ Unclear" field.
+
+The **Overview** tab is the exception: it shows every active medication in a scrollable list
+(so nothing is hidden), with the most recently started one highlighted separately as "Latest."
+
+## Compare tab
+
+Pick a category, then click two or more of its dates as chips — the matching entries line up
+side by side in a table, one column per entry, one row per field, so you can see exactly what
+changed between visits or tests at a glance.
+
+## Import data — by category
+
+The **Import data** modal now has a category dropdown. Leave it on "Auto-detect" to paste the
+full JSON object with category keys (medications, tests, etc. — same format Claude produces).
+Or pick a specific category and paste just that category's array (or an object with just that
+key) if you're importing a single type of record at a time.
+
 ## Profiles
 
 One chart, several people — e.g. yourself, a parent, a child. Click the
